@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_024206) do
 
+ActiveRecord::Schema.define(version: 2020_12_15_024206) do
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
     t.bigint "room_id"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 2020_12_15_024206) do
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
+
+
+
 
   create_table "room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "room_id"
@@ -52,6 +55,8 @@ ActiveRecord::Schema.define(version: 2020_12_15_024206) do
 
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+
+
   add_foreign_key "room_users", "rooms"
   add_foreign_key "room_users", "users"
 end
